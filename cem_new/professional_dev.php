@@ -1,46 +1,34 @@
 <?php
 
 // start php session
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <!-- nav bar -->
 <?php 
-  include "php/navbar.php"; 
+  include "php/navbar.php";
 ?>
+<!-- sub nav bar -->
+<?php include "php/sub-navbar.php";?>
 <!-- container -->
-<div class="container-fluid">
+<div class="container">
   <div class="row content">
-      <!-- sub nav bar -->  
-        <nav class="navbar navbar-default">
-          <div class="container">
-            <div class="navbar-header">
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="professional_dev.php">About</a></li>
-                <li><a href="online_professional_dev.php"> Online Professional Development</a></li>
-                <li><a href="offline_professional_dev.php">Offline Professional Development</a></li>
-            </ul>
-          </div>
-        </nav>
-      <div class="container">
-            <div><h2 style="font-family: Georgia">Professional Development- About </h2> <br></div>
-      </div>
 
-        <div class = "co1-sm-1 col-md-1 sidenav">
-        </div>
-        <div class="col-sm-3 col-md-3 sidebar" style="text-align: center; font-size: 15px; background-color:white;">
+      <div class="container">
+            <div><h2>Professional Development- About </h2> <br></div>
+      </div>
+        <div class="col-sm-5 sidebar" style="text-align: center; font-size: 15px; background-color:white;">
 
             <div class="well">
               <fieldset>
@@ -66,10 +54,8 @@ session_start();
             </div>
         </div>
         
-         <div class = "col-sm-5 text-left">
-            <p class="information">
-                The Center for Educational Media serves MTSU and the College of Education through outreach to the education community with Professional Development and partnerships. Through HD Video Production, our educational services begin with the local community and extend globally via distribution through satellite, cable and the web.
-            </p>
+         <div class = "col-sm-7 text-left">
+         
             <!-------------------------------------------------------- Slideshow container ---------------------------------------------------------------->
            
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -104,36 +90,36 @@ session_start();
               <div class="item">
                 <img src="assets/ell/2.JPG" style="width:100%;">
               </div>
-             <div class="item">
+              <div class="item">
                 <img src="assets/pdev/3.png" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/ell/3.JPG" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/pdev/4.png" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/ell/5.JPG" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/pdev/5.png" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/ell/6.JPG" style="width:100%;">
               </div>
-            <div class="item">
+              <div class="item">
                 <img src="assets/pdev/6.png" style="width:100%;">
-            </div>
-            <div class="item">
+              </div>
+              <div class="item">
                 <img src="assets/ell/7.JPG" style="width:100%;">
-            </div>
-            <div class="item">
+              </div>
+              <div class="item">
                 <img src="assets/pdev/7.png" style="width:100%;">
-            </div>
-            <div class="item">
+              </div>
+              <div class="item">
                 <img src="assets/pdev/8.png" style="width:100%;">
-             </div>
+              </div>
             </div>
               
             <!-- Left and right controls -->
@@ -151,5 +137,7 @@ session_start();
          </div>
 
    <?php include "php/footer.php"; ?>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

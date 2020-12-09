@@ -1,18 +1,22 @@
 <?php
 // start php session
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 require "php/vars.php";
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Center for Educational Media | Confirmation</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <?php 
-include "php/navbar.php"; 
+include "php/navbar.php";
 ?>
 
 <div class="page-content">

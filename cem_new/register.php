@@ -14,7 +14,7 @@ session_start();
 
 <?php 
 # nav bar grabbed from php/navbar.php
-include "php/navbar.php"; 
+include "php/navbar.php";
 ?>
 
 <div class="page-content">

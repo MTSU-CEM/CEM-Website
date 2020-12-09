@@ -29,26 +29,28 @@ Permission_Level
 
 echo<<<HTML
 	<form action="$site_root/php/register_user.php" method="post">
-		<div class="container">
-			<label for="uname"><b>Username</b></label>
-			<input type="text" placeholder="Username" name="uname" required><br>
+		<div class="container-fluid">
+                    <div class="row">
+			<label for="uname" class="control-label"><b>Username</b></label>
+			<input type="text" class="form-control" placeholder="Username" name="uname" required><br>
 
-			<label for="fname"><b>First Name</b></label>
-			<input type="text" placeholder="First Name" name="fname" required><br>
+			<label for="fname" class="control-label"><b>First Name</b></label>
+			<input type="text" class="form-control" placeholder="First Name" name="fname" required><br>
 
-			<label for="lname"><b>Last Name</b></label>
-			<input type="text" placeholder="Last Name" name="lname" required><br>
+			<label for="lname" class="control-label"><b>Last Name</b></label>
+			<input type="text" class="form-control" placeholder="Last Name" name="lname" required><br>
 
-			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Email@address.com" name="email" required><br>
+			<label for="email" class="control-label"><b>Email</b></label>
+			<input type="email" class="form-control" placeholder="Email@address.com" name="email" required><br>
 
-			<label for="passw"><b>Password</b></label>
-			<input type="password" placeholder="Password" name="passw" required><br>
+			<label for="passw" class="control-label"><b>Password</b></label>
+			<input type="password" class="form-control" placeholder="Password" name="passw" required><br>
 			
-			<label for="passw"><b>Confirm Password</b></label>			
-			<input type="password" placeholder="Password" name="cpassw" required><br>
-			<input type="submit" name="submit"><br>
-		</div>
+			<label for="passw" class="control-label"><b>Confirm Password</b></label>			
+			<input type="password" class="form-control" placeholder="Password" name="cpassw" required><br>
+			<input type="submit" name="submit" class="btn btn-primary" ><br>
+		     </div>
+                </div>
 	</form><br>
 	</br>
 HTML;

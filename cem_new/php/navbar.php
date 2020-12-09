@@ -10,29 +10,25 @@ $dashboard_link  = (($logged_in && $admin) ? "$site_root/admin_panel.php" : "$si
 $curr_page=$_SERVER['REQUEST_URI'];
 $curr_page_b=$_SERVER['SCRIPT_NAME'];
 $carriage_return="\r\n";
-echo "<nav class=\"navbar navbar-dark\" style=\"background-color: #002e4d;\">";
+echo "<nav class=\"navbar navbar-dark\" style=\"background-color: #002e4d; z-index:4\">";
 echo "<div class=\"container\">";
 echo "<div style=\"float: left;\"><img width=\"120\" height=\"140\" src=\"assets/logo-cem.svg\"/></div><br><br>";
 echo "<div class=\"navbar-header\"><div class=\"logo\">";
-echo "<a style=\"color:white; font-size: 20px;\" class=\"navbar-brand\" href=\"$site_root/index.php\"><div>Center for Educational Media</div>";
-
-/*echo "<figcaption class=\"title\"><a class=\"caption\" href=\"index.php\">Center for Educational Media</a></figcaption>";*/
+echo "<a style=\"color:white; font-size: 20px;\" class=\"navbar-brand\" href=\"$site_root/index.php\"><div></div>";
 echo "</div>";
 echo "<div class=\"collapse navbar-collapse\" id=\"collapsibleNavbar\">";
-
 echo "<ul style=\"color:black; font-size: 20px;\" class=\"nav navbar-nav\">";
 echo "<br><br>";
 echo "<li class=\"nav-item\"><a ";
 if (stripos($curr_page_b,"index.php") !== false){echo 'class="active"';}
 echo "href=\"$site_root/index.php\" class=\"nav-link\" >Home</a></li> ";
 echo "<li class=\"nav-item dropdown\">";
-echo "<a class=\"nav-link dropdown-toggle\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\"aria-haspopup=\"true\" aria-expanded=\"True\">Professional Development </a>";
+echo "<a class=\"nav-link dropdown-toggle\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\"aria-haspopup=\"true\" aria-expanded=\"True\"> Professional Development </a>";
 echo " <div style=\"text-align: center;\" class=\"dropdown-content\"> ";
-echo " <a class=\"dropdown-item\" href=\"$site_root/professional_dev.php\">About</a> <br>";
-echo " <a class=\"dropdown-item\" href=\"$site_root/online_professional_dev.php\">Online Professional Development</a><br> ";
-echo " <a class=\"dropdown-item\" href=\"$site_root/offline_professional_dev.php\">Offline Professional Development</a> <br>";
+echo " <a style = \"padding: 2rem;\" class=\"dropdown-item\" href=\"$site_root/professional_dev.php\">About</a>";
+echo " <a style = \"padding: 1rem;\" class=\"dropdown-item\" href=\"$site_root/online_professional_dev.php\">Online Professional Development</a>";
+echo " <a style = \"padding: 1rem;\" class=\"dropdown-item\" href=\"$site_root/offline_professional_dev.php\">Offline Professional Development</a>";
 echo " </div>";
-
 
 echo "</li><li class=\"nav-item\"><a ";
 if (stripos($curr_page,'erc.php') !== false){echo 'class="active"';}

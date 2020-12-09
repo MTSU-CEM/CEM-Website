@@ -1,5 +1,4 @@
 <?php
-
 require "php/db_connect.php";
 require "php/vars.php";
 require "php/funcs.php";
@@ -16,13 +15,11 @@ $query->setFetchMode(PDO::FETCH_ASSOC);
 $query->execute();
 
 echo<<<HTML
-<form class="form-horizontal">
-<h3>Please fill out form</h3>
+<form class="registration_form" method="post" id="registration" action="php/event_registration.php">
+<h4>Please fill out form</h4>
 <div>
-    <form class="registration_form" method="post" id="registration" action="$site_root/php/event_registration.php">
-    <div class="form-group">
-        <label>Event</label>
-        <h4 class="alert">ATTN: BE SURE TO SELECT CORRECT EVENT</h4>
+    <div class="form-group">      
+        <h5 id="info">ATTN: BE SURE TO SELECT CORRECT EVENT</h5>
         <select class="form-control" name="event" class="event" required>
             <option disabled selected value> -- select an event -- </option>
 HTML;
@@ -38,7 +35,7 @@ HTML;
                     echo "<option value='$event_name'>$event_name</option>";
                 }
             }
-            
+
 echo<<<HTML
         </select>
 
@@ -46,49 +43,49 @@ echo<<<HTML
     
    
     <div class="form-group">
-        <label>First Name</label>
+        <label>&nbsp;First Name</label>
         <input class="form-control" name="Fname" size="60" placeholder= "First Name" value="Test" required >
     </div>
 
     <div class="form-group">
-        <label>Last Name</label>
+        <label>&nbsp;Last Name</label>
         <input class="form-control" name="Lname" size="60" placeholder= "Last Name" value="User" required>
     </div>
 
     <div class="form-group">
-       <label>Cell Phone (e.g. XXX-XXX-XXXX)</label>
+       <label>&nbsp;Cell Phone (e.g. XXX-XXX-XXXX)</label>
         <input class="form-control" id="Phone" name="Phone" size="60" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"placeholder= "Phone Number (e.g. 123-456-7890)"  value="615-962-2813" required>
     </div>
 
     <div class="form-group">
-        <label>Email address</label>
-        <input class="form-control" name="Email" size="60" placeholder="Email address" value="jbv2d@mtmail.mtsu.edu" required>
+        <label>&nbsp;Email address</label>
+        <input class="form-control" name="Email" size="60" placeholder="Email address" value="hk4h@mtmail.mtsu.edu" required>
     </div>
 
     <div class="form-group">
-        <label>School</label>
+        <label>&nbsp;School</label>
         <input class="form-control" name="School" size="60" placeholder="School" value="MTSU" required>
     </div>
 
     <div class="form-group">
-        <!--<label>School Phone (e.g. XXX-XXX-XXXX)</label>-->
+        <label>&nbsp;School Phone (e.g. XXX-XXX-XXXX)</label>
         <!--<input name="SPhone" size="60" required>-->
         <input class="form-control" id="SPhone" name="SPhone" size="60" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  value="615-962-2813" placeholder="School Phone (e.g. XXX-XXX-XXXX)" required>
     </div>
 
     <div class="form-group">
-        <!--<label>District</label>-->
+        <label>&nbsp;District</label>
         <input class="form-control" name="District" size="60" placeholder="District"  value="Rutherford" required>
     </div>
 
     <div class="form-group">
-        <!--<label>Position</label>-->
+        <label>&nbsp;Position</label>
         <input class="form-control" name="Position" size="60" placeholder="Position"  value="GA" required>
     </div>
 
     <div class="form-group">
-        <label style="padding-top: 1em"><strong>Terms and Conditions</strong></label>
-        <div class="form-control" id="terms_and_conditions" style="width: 60%;height: 15em; overflow: Auto; border: 1px solid black; border-radius: 3px;">
+        <label style="padding-top: 1em;"><strong>&nbsp;Terms and Conditions</strong></label>
+        <div class="form-control" id="terms_and_conditions" style="width: 100%;height: 15em; overflow: Auto; border: 1px solid black; border-radius: 3px;">
             Pursuant to the Tennessee Personal Rights Protection Act, T. C. A. §47-25-110 and the U.S. Copyright Act, I,
             the undersigned, hereby grant permission to the Center for Educational Media to record my image, voice, performances, poses, acts,
             plays and appearances, and use my picture, photograph, silhouette and other reproductions of my physical likeness and sound in any
@@ -115,19 +112,26 @@ echo<<<HTML
             or any of their representative(s) for arranging my appearance in this production.
         </div>
     </div>
-    <div class="checkbox">
-        <input type="checkbox" name="agree" required/> I Agree to the Center for Educational Media's Terms and Conditions
-        <br/>
-        <br/>
+    <div class="for-padding" style=" " >
+        <div class="checkbox">
+            <input type="checkbox" size="60" name="agree" required/> I Agree to the Center for Educational Media's Terms and Conditions
+            <br/>
+            <br/>
+        </div>
     </div>
     <div>
-        <input class="btn btn-default" type="submit" name="submit" >
+        <input class="btn btn-default" type="submit" name="submitbtn" >
+    </div>
     </div>
     </form>
-</div>
 HTML;
-}
 
+/**
+ * this file inserts new user into event table and emails both the user
+ * and the moderator/cc emails that are found in event settings.
+ */
+
+}
 else
 {
 echo<<<HTML

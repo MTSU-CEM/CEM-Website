@@ -1,18 +1,18 @@
+<script>console.log(5);</script>
 <?php
 /**
     this file inserts new user into event table and emails both the user 
     and the moderator/cc emails that are found in event settings.
  */
 
+
 require "db_connect.php";
 require "vars.php";
 require "../email/emailer.php";
-
-session_start();
 $success = FALSE;
-
 // load event settings
 $EVENT = $_POST["event"];
+session_start();
 
 $query = $conn->prepare("SELECT * from EVENTS WHERE event_name LIKE ?");
 // prepare and bindParam should protect against SQL injection
@@ -22,7 +22,8 @@ $query->execute();
 
 $row=$query->fetch();
 
-$EVENT_NAME = $EVENT;
+//$EVENT_NAME = $EVENT;
+$EVENT_NAME = $row["event_name"];
 $EVENT_DATE = $row["event_date"];
 $OPEN_REGISTRATION = $row["open_registration"];
 $CC_EMAIL = $row["cc_email"];
@@ -40,11 +41,11 @@ if (isset($_POST['Fname']) && isset($_POST['Lname'])  && isset($_POST['Position'
         if ($success)
         {
             $success1 = email_moderator(
-                $event=$EVENT, 
+                $event=$EVENT,
                 $email_to=$ADMIN_EMAIL,
                 $email_from="CEM@mtsu.edu", 
                 $from_name="CEM",
-                $cc_email="josephbvolmer@gmail.com",
+                $cc_email="kheena05@gmail.com",
                 $registration_vars = $_POST,
                 $email_template="../email/event_template_moderator.html"
             ); //sends email to jenny
@@ -53,7 +54,7 @@ if (isset($_POST['Fname']) && isset($_POST['Lname'])  && isset($_POST['Position'
                 $email_to = $_POST['Email'], 
                 $email_from = "CEM@mtsu.edu", 
                 $from_name = "CEM",
-                $cc_email="josephbvolmer@gmail.com", 
+                $cc_email="kheena05@gmail.com", 
                 $event_moderator="Jenny Marsh",
                 $email_template="../email/event_template_user.html"
             ); //sends email to usern

@@ -48,4 +48,5 @@ function GenerateMenu($menu, $class) {
   return $html;
 }
 
+
 ?>

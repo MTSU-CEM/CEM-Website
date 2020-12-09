@@ -17,19 +17,24 @@ if (!((isset($_SESSION["authenticated"])) && ($_SESSION["authenticated"])))
 <title>Center for Educational Media | User Panel</title>
 <!-- data tables style stuff -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- custom style sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <!-- data tables js stuff, not sure if all of this is necessary -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script type="text/javascript"  src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -67,7 +72,7 @@ function openTab(evt, tabName) {
 <?php
   require "php/db_connect.php";
   require "php/vars.php";
-  require "php/navbar.php"; 
+  require "php/navbar.php";
 
 ?>
 <!-- load all conference settings -->
@@ -77,43 +82,46 @@ function openTab(evt, tabName) {
   $settings_query->execute();
 ?>
 
-<div class="page-content"> <!-- page content div start -->
+<div class="container"> <!-- page content div start -->
     <div id="alerts_div">&nbsp;</div>
 
     <!-- Tab links -->
-    <div class="tabs">
-        <button id="viewbtn" class="tablinks" onclick="openTab(event, 'view')">View</button>
-        <button id="editbtn" class="tablinks" onclick="openTab(event, 'edit')">Edit</button>
-        <button id="certbtn" class="tablinks" onclick="openTab(event, 'certs')">Webcast Certificates</button>
+    <div class="btn-group">
+        <button id="viewbtn" class="btn btn-secondary" onclick="openTab(event, 'view')">View</button>
+        <button id="editbtn" class="btn btn-secondary" onclick="openTab(event, 'edit')">Edit</button>
+        <button id="certbtn" class="btn btn-secondary" onclick="openTab(event, 'certs')">Webcast Certificates</button>
     </div>
 
     <!-- Tab content -->
     <div id="view" class="tabcontent">
-    <h2>View</h2>
-    <h4>Information</h4>
-    <ul>
-        <li>First Name: <?php echo $_SESSION["Fname"];?></li>
-        <li>Last Name: <?php echo $_SESSION["Lname"];?></li>
-        <li>User Name: <?php echo $_SESSION["uname"];?></li>
-        <!--<li>Country</li>-->    
-        <!--<li>State</li>-->  
-        <!--<li>Participant</li>-->  
-        <!--<li>Are you from Middle Tennessee State University?</li>-->  
-    </ul>
-
-    <h4>History</h4>
-    <ul>
-        <li>Member since: <?php echo $_SESSION['signup_date'];?></li>
-    </ul>
+    <h2 style="font-family: Georgia">View</h2>
+    <div class="col-sm-6 text-left" style="text-align: left; font-size: 15px; background-color:white;">
+        <div class="well">
+            <fieldset>
+             <legend style="font-family: Georgia">Information</legend>
+             <ul>
+                 <li><b>First Name:&nbsp;&nbsp;&nbsp;</b> <?php echo $_SESSION["Fname"];?></li>
+                 <li><b>Last Name: &nbsp;&nbsp;&nbsp;</b><?php echo $_SESSION["Lname"];?></li>
+                 <li><b>User Name: &nbsp;&nbsp;&nbsp;</b><?php echo $_SESSION["uname"];?></li>
+             </ul>
+             <br>
+            </fieldset>
+             <fieldset>
+            <legend style="font-family: Georgia">History</legend>
+            <ul>
+                <li><b>Member since: </b><?php echo $_SESSION['signup_date'];?></li>
+            </ul>
+            </fieldset>
+            </div>
+        </div>
     </div>
-
     <div id="edit" class="tabcontent">
-    <h2>Edit</h2>
+    <h2 style="font-family: Georgia">Edit</h2>
     <?php require "forms/user_edit_form.php"?>
     </div>
 
     <div id="certs" class="tabcontent">
-    <h2>Webcast Certificates</h2>
+    <h2 style="font-family: Georgia">Webcast Certificates</h2>
     <?php
     // get all certificates for current user
         $query = $conn->prepare("SELECT Certificate,Date_Earned from users JOIN certificates on users.User_Id LIKE ?");
@@ -171,7 +179,7 @@ function openTab(evt, tabName) {
 
 </div> <!-- end page content div -->
 
-
+<br><br><br><br><br><br><br><br>
 <?php
 include "php/footer.php"; 
 if(isset($_SESSION['alerts']))

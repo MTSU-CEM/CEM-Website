@@ -17,7 +17,7 @@ session_start();
 <body>
 <!-- nav bar -->
 <?php 
-  include "php/navbar.php"; 
+  include "php/navbar.php";
 ?>
 <!-- container -->
 <div class="container">
@@ -34,17 +34,16 @@ session_start();
             </ul>
           </div>
         </nav>
-      <div><h2 style="font-family: Georgia">Professional Development- About </h2> <br></div>
+      <div><h2>Professional Development- About </h2> <br></div>
   </div>
 </div>
 <!--        <div class = "co1-sm-1 col-md-1 sidenav"> </div>-->
 <div class="container-fluid">
     <div class="row content">
 
-        <div class = "co1-sm-1 col-md-1 sidenav">
+        <div class = "  ">
         </div>
         <div class="col-sm-3 col-md-3 sidebar" style="text-align: center; font-size: 15px; background-color:white;">
-
             <div class="well">
               <fieldset>
                 <legend>Online - HD Videos</legend>

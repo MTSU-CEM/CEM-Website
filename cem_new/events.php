@@ -19,7 +19,7 @@ session_start();
 <!-- nav bar -->
 <?php
   include "php/vars.php";
-  include "php/navbar.php"; 
+  include "php/navbar.php";
 ?>
 <div class="container">
 <div class="page-content">

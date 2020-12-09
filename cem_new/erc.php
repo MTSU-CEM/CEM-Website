@@ -20,21 +20,15 @@ session_start();
 <body>
 <!-- nav bar -->
 <?php 
-  include "php/navbar.php"; 
+  include "php/navbar.php";
 ?>
 <div class="container">
-    <div class="row">
-<div class="page-content">
-    
-	<h2 style="font-family: Georgia"> Education Resource Channel</h2>
-	<hr>
-    <div class="content" >
+    <h2 style="font-family: Georgia"> Education Resource Channel</h2>
+    <hr>
+    <div class="well" >
         <iframe src="https://videoplayer.telvue.com/player/h5VycNXH7bgkAv6afvGOOsaDDk8g7wPw?fullscreen=false&showtabssearch=true&autostart=false" width="1100" height="1000" frameborder="0" allowfullscreen></iframe>
     </div>
     <hr>
-
-</div>
-    </div>
 </div>
 <?php 
   include "php/footer.php"; 
